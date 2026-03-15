@@ -12,8 +12,9 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:navigationIcon="@drawable/arrow_back"
         android:title="@string/article_title"
-        android:navigationIcon="@drawable/arrow_back" />
+        app:titleTextAppearance="?attr/textAppearanceTitleLarge" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,104 +31,101 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:text="@string/article2_title"
-                android:textColor="#000000"
-                android:textSize="28sp">
-            </TextView>
+                android:textAppearance="?attr/textAppearanceHeadlineMedium"
+                android:textColor="?attr/colorOnSurface" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#737373"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginBottom="12dp"
+                android:background="?attr/colorOutline" />
 
             <TextView
-                android:text="@string/article2_content1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:layout_marginTop="10.dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="12dp"
                 android:justificationMode="inter_word"
-                android:layout_marginBottom="12dp">
-            </TextView>
+                android:text="@string/article2_content1"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?attr/colorOnSurface" />
 
             <ImageView
                 android:id="@+id/articleImage"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:scaleType="centerCrop"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginBottom="16dp"
+                android:scaleType="centerCrop" />
 
             <TextView
-                android:text="@string/article2_content2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:layout_marginTop="10.dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="12dp"
                 android:justificationMode="inter_word"
-                android:layout_marginBottom="12dp">
-            </TextView>
+                android:text="@string/article2_content2"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?attr/colorOnSurface" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="12dp">
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal">
 
                 <View
                     android:layout_width="10dp"
                     android:layout_height="match_parent"
-                    android:background="#FF9800"
-                    android:layout_marginEnd="12dp" />
+                    android:layout_marginEnd="12dp"
+                    android:background="?attr/colorPrimary" />
 
                 <TextView
-                    android:text="@string/article2_content3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="#333333"
-                    android:textSize="16sp"
+                    android:background="?attr/colorSurfaceVariant"
                     android:padding="12dp"
-                    android:background="#F5F5F5"
-                    android:textStyle="italic"/>
+                    android:text="@string/article2_content3"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:textStyle="italic" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="#FFF3E0"
-                android:padding="16dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="12dp">
+                android:layout_marginBottom="12dp"
+                android:background="?attr/colorSecondaryContainer"
+                android:orientation="horizontal"
+                android:padding="16dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
                     android:text="!"
-                    android:textSize="18sp"
-                    android:layout_marginEnd="10dp" />
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    android:textColor="?attr/colorOnSecondaryContainer" />
 
                 <TextView
-                    android:text="@string/article2_fact"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="#333333"
-                    android:textSize="16sp"
-                    android:justificationMode="inter_word" />
+                    android:justificationMode="inter_word"
+                    android:text="@string/article2_fact"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?attr/colorOnSecondaryContainer" />
             </LinearLayout>
 
-            <Switch
+            <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/switchRead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
                 android:text="@string/read_switch"
-                android:textSize="18sp"
-                tools:ignore="UseSwitchCompatOrMaterialXml"
-                android:layout_gravity="right|center_vertical"/>
+                android:textAppearance="?attr/textAppearanceBodyLarge" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

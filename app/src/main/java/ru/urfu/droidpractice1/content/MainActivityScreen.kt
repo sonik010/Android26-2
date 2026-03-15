@@ -40,13 +40,13 @@ import coil.request.ImageRequest
 
 @Composable
 fun MainActivityScreen(
-    SecondRead: Boolean,
-    CountLike: Int,
-    CountDislike: Int,
-    LikeClick: () -> Unit,
-    DislikeClick: () -> Unit,
-    ShareClick: (String) -> Unit,
-    SecondClick: () -> Unit
+    secondRead: Boolean,
+    countLike: Int,
+    countDislike: Int,
+    likeClick: () -> Unit,
+    dislikeClick: () -> Unit,
+    shareClick: (String) -> Unit,
+    secondClick: () -> Unit
 ) {
     DroidPractice1Theme {
         Scaffold(
@@ -76,9 +76,8 @@ fun MainActivityScreen(
 
                     Text(
                         text = stringResource(R.string.article1_title),
-                        fontSize = 28.sp,
+                        style = MaterialTheme.typography.headlineMedium,
                         fontWeight = FontWeight.Bold,
-                        fontStyle = FontStyle.Normal,
                         textAlign = TextAlign.Start,
                         modifier = Modifier.padding(horizontal = 16.dp)
                     )
@@ -87,11 +86,12 @@ fun MainActivityScreen(
 
                     Text(
                         text = stringResource(R.string.article1_content1),
-                        fontSize = 18.sp,
-                        fontStyle = FontStyle.Italic,
-                        fontWeight = FontWeight.Light,
-                        textDecoration = TextDecoration.Underline,
-                        color = Color(0xFF000000),
+                        style = MaterialTheme.typography.bodyLarge.copy(
+                            fontStyle = FontStyle.Italic,
+                            fontWeight = FontWeight.Light,
+                            textDecoration = TextDecoration.Underline
+                        ),
+                        color = MaterialTheme.colorScheme.onSurface,
                         modifier = Modifier.padding(16.dp)
                     )
 
@@ -115,18 +115,14 @@ fun MainActivityScreen(
                     ) {
                         Text(
                             text = stringResource(R.string.article1_content2),
-                            fontSize = 18.sp,
-                            fontWeight = FontWeight.Normal,
-                            fontStyle = FontStyle.Normal,
+                            style = MaterialTheme.typography.bodyLarge,
                             textAlign = TextAlign.Start,
                             modifier = Modifier.padding(16.dp)
                         )
 
                         Text(
                             text = stringResource(R.string.article1_content3),
-                            fontSize = 18.sp,
-                            fontWeight = FontWeight.Normal,
-                            fontStyle = FontStyle.Normal,
+                            style = MaterialTheme.typography.bodyLarge,
                             textAlign = TextAlign.Start,
                             modifier = Modifier.padding(16.dp)
                         )
@@ -137,14 +133,14 @@ fun MainActivityScreen(
                         horizontalArrangement = Arrangement.SpaceEvenly
                     ) {
                         Button(
-                            onClick = LikeClick,
+                            onClick = likeClick,
                             colors = ButtonDefaults.buttonColors(
                                 containerColor = Color(0xEB4CAF50)
                             ),
                             modifier = Modifier.weight(1f)
                         ) {
                             Text(
-                                text = "like ($CountLike)",
+                                text = "like ($countLike)",
                                 fontSize = 16.sp,
                                 modifier = Modifier.padding(horizontal = 8.dp)
                             )
@@ -152,14 +148,14 @@ fun MainActivityScreen(
 
                         Spacer(modifier = Modifier.height(8.dp))
                         Button(
-                            onClick = DislikeClick,
+                            onClick = dislikeClick,
                             colors = ButtonDefaults.buttonColors(
                                 containerColor = Color(0xE2F44336)
                             ),
                             modifier = Modifier.weight(1f)
                         ) {
                             Text(
-                                text = "dislike ($CountDislike)",
+                                text = "dislike ($countDislike)",
                                 fontSize = 16.sp,
                                 modifier = Modifier.padding(horizontal = 8.dp)
                             )
@@ -167,8 +163,8 @@ fun MainActivityScreen(
                     }
                     Spacer(modifier = Modifier.height(8.dp))
                     Button(
-                        onClick = { ShareClick("Владимир Набоков «Защита Лужина»") },
-                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xE803A9F4)),
+                        onClick = { shareClick("Владимир Набоков «Защита Лужина»") },
+                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
                         modifier = Modifier
                             .fillMaxSize(0.9f)
                             .padding(vertical = 8.dp)
@@ -193,10 +189,10 @@ fun MainActivityScreen(
                             .padding(16.dp)
                             .fillMaxWidth(),
                         colors = CardDefaults.cardColors(
-                            containerColor = if (SecondRead)
+                            containerColor = if (secondRead)
                                 Color(0xFF81C784) else Color(0xFFBBDEFB)
                         ),
-                        onClick = SecondClick
+                        onClick = secondClick
                     ) {
                         Row(
                             modifier = Modifier
@@ -217,7 +213,7 @@ fun MainActivityScreen(
                                     color = Color.DarkGray
                                 )
                             }
-                            if (SecondRead) {
+                            if (secondRead) {
                                 Text(
                                     text = "Прочитано",
                                     color = Color(0xFF1B5E20),
@@ -247,12 +243,12 @@ fun MainActivityScreen(
 @Composable
 fun MainScreenPreview() {
     MainActivityScreen(
-        SecondRead = true,
-        CountLike = 41,
-        CountDislike = 7,
-        LikeClick = { println("Like clicked") },  // Заглушка для действия
-        DislikeClick = { println("Dislike clicked") },  // Заглушка
-        ShareClick = { text -> println("Share: $text") },  // Заглушка
-        SecondClick = { println("Second article clicked") }  // Заглушка
+        secondRead = true,
+        countLike = 41,
+        countDislike = 7,
+        likeClick = { println("Like clicked") },  // Заглушка для действия
+        dislikeClick = { println("Dislike clicked") },  // Заглушка
+        shareClick = { text -> println("Share: $text") },  // Заглушка
+        secondClick = { println("Second article clicked") }  // Заглушка
     )
 }
