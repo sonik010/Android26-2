@@ -6,8 +6,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedCallback
 import coil.load
 import ru.urfu.droidpractice1.databinding.ActivitySecondBinding
+import android.util.Log
 
 class SecondActivity : ComponentActivity() {
+    private val TAG = "SecondActivity"
 
     private lateinit var binding: ActivitySecondBinding
 
@@ -38,6 +40,37 @@ class SecondActivity : ComponentActivity() {
             }
         })
     }
+
+    override fun onStart(){
+        super.onStart();
+        Log.d("Lifecycle", "SecondActivity onStart")
+    }
+
+    override fun onResume() {
+        super.onResume();
+        Log.d("Lifecycle", "SecondActivity onResume")
+    }
+
+    override fun onPause() {
+        super.onPause();
+        Log.d("Lifecycle", "SecondActivity onPause")
+    }
+
+    override fun onStop() {
+        super.onStop();
+        Log.d("Lifecycle", "SecondActivity onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy();
+        Log.d("Lifecycle", "SecondActivity onDestroy")
+    }
+
+    override fun onRestart() {
+        super.onRestart();
+        Log.d("Lifecycle", "SecondActivity onRestart")
+    }
+
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
